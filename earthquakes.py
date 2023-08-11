@@ -71,14 +71,16 @@ class Earthquakes:
         self.data = data
         return data
         
-    def __generate_core(self, data: pd.DataFrame, m_size: int = 10, m_color: str = "blue") -> Figure:
+    def __generate_core(self, data: pd.DataFrame, m_size: int = 10, m_color: str = "red", width: int = 1300, height: int = 900) -> Figure:
         fig = px.scatter_mapbox(data_frame = data, 
                                 lat='latitude', 
                                 lon='longitude',
                                 mapbox_style="open-street-map",
                                 hover_name='id',
                                 hover_data=["magnitude", "depth"],
-                                zoom = 2)
+                                zoom = 1.5,
+                                width = width,
+                                height = height)
         fig.update_traces(marker = dict(size = m_size, color = m_color))
         fig.update_layout(margin = {"r":0,"t":0,"l":0,"b":0})
         return fig
@@ -89,8 +91,6 @@ class Earthquakes:
         fig = self.__generate_core(self.data)
         self.map = fig
         return fig        
-
-
 
 
     
