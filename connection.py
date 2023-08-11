@@ -4,8 +4,7 @@ import datetime
 from boto3.dynamodb.conditions import Key, Attr
 
 def create_ressource() -> boto3.resource:
-    dynamodb = boto3.resource('dynamodb', aws_access_key_id="key_here",
-                        aws_secret_access_key="secret_key_here")
+    dynamodb = boto3.resource('dynamodb')
     return dynamodb
 
 
