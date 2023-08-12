@@ -8,11 +8,21 @@ background-color: #f2efe9
 }
 </style>
 """
+
 st.set_page_config(page_title="Earthquake Streaming", layout="wide")
 st.markdown(page_bg_img, unsafe_allow_html=True)
 st.markdown('<h1 style="color: black;">Earthquake Streaming</h1>', unsafe_allow_html=True)
 st.markdown('<h1 style="color: black; font-size: 14px;">This dashboard visualizes global earthquakes in near-real time. To get new earthquakes, please refresh the page.</h1>', unsafe_allow_html=True)
 
+st.markdown(
+        """<style>
+    div[class*="stSlider"] > label > div[data-testid="stMarkdownContainer"] > p {
+        font-size: 14px;
+        color: black;
+        font-weight: bold;
+    }
+        </style>
+        """, unsafe_allow_html=True)
 values = st.slider('Select a range of magnitudes, you want to display',1.0, 10.0, (1.0, 10.0))
 
 
